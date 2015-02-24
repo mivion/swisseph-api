@@ -10,7 +10,7 @@ $app.formatHour = function (hour) {
 	minutes = Math.floor (hour);
 	hour -= minutes;
 	hour *= 60;
-	seconds = hour;
+	seconds = Math.floor (hour);
 
 	result =
 		$app.twoDigitsString (hours) + ':' +
@@ -42,11 +42,14 @@ $app.formatDegreeMinuteSecond = function (value) {
 	var deg = Math.abs (value);
 	var min = (60.0 * (deg - Math.floor (deg)));
 	var sec = 60.0 * (min - Math.floor (min));
+	
+	sec = Math.floor (sec * $app.Precision) / $app.Precision;
+	
 	var result = '';
 	deg = Math.floor (deg);
 	min = Math.floor (min);
-	result += deg + '° ';
-	result += min + '\' ';
+	result += deg + '°';
+	result += min + '\'';
 	result += sec + '"';
 	return result;
 };
@@ -62,7 +65,7 @@ $app.parseDate = function (date) {
 			day: parseFloat (tokens [0][0]),
 			month: parseFloat (tokens [0][1]),
 			year: parseFloat (tokens [0][2]),
-			hour: parseFloat (tokens [1][0]) + (parseFloat (tokens [1][2]) / 60 + parseFloat (tokens [1][1])) / 60
+			hour: parseFloat (tokens [1][0] || 0) + (parseFloat (tokens [1][2] || 0) / 60 + parseFloat (tokens [1][1] || 0)) / 60
 		};
 	}
 

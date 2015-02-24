@@ -1,5 +1,5 @@
 $app.AppVarAttribute = 'data-var';
-
+$app.Precision = 100000000;
 
 window.addEventListener ('keypress', function (event) {
 	if (event.keyCode == 13) {
@@ -8,6 +8,17 @@ window.addEventListener ('keypress', function (event) {
 });
 
 var socket = io.connect('http://localhost:3000');
+
+jQuery ('#gt-date').datetimepicker ({
+	value: (new Date ()).dateFormat ('d.m.Y H:i:s'),
+	mask: true,
+	format: 'd.m.Y H:i:s'
+});
+
+jQuery ('#gu-date').datetimepicker ({
+	mask: true,
+	format: 'd.m.Y H:i:s'
+});
 
 socket.on ('swisseph result', function (result) {
     console.log (result);
@@ -94,7 +105,11 @@ $app.setVar = function () {
 			if (element.tagName == 'INPUT') {
 				element.value = eval ('(' + element.getAttribute ($app.AppVarAttribute) + ')');
 			} else if (element.tagName != 'SELECT') {
-				element.innerText = eval ('(' + element.getAttribute ($app.AppVarAttribute) + ')');
+				value = eval ('(' + element.getAttribute ($app.AppVarAttribute) + ')');
+				if (typeof (value) == 'number') {
+					value = Math.floor (value * $app.Precision) / $app.Precision;
+				};
+				element.innerText = value;
 			}
 		} catch (exception) {
 		}

@@ -4,15 +4,8 @@
     <title>Ephemeris Online</title>
 
     <link href="styles/style.css" rel="stylesheet"/>
+    <link href="styles/jquery.datetimepicker.css" rel="stylesheet"/>
     
-    <script src="/socket.io/socket.io.js"></script>
-
-    <script type='text/javascript' src='js/index.js' charset='utf-8'></script>
-    <script type='text/javascript' src='js/common.js' charset='utf-8'></script>
-    <script type='text/javascript' src='js/load.js' charset='utf-8'></script>
-    <script type='text/javascript' src='js/datetime.js' charset='utf-8'></script>
-
-    <script type='text/javascript' src='js/shortcut.js' charset='utf-8'></script>
 
 </head>
 <body onload='$app.update ()'>
@@ -41,9 +34,9 @@
                 </tr>
                 <tr>
                     <td class='title'>Gregorian:</td>
-                    <td><input class='numeric' type='text' data-var='$app.date.gregorian.terrestrial'
-                               value='01.01.2012 00:00:00'></td>
-                    <td><input class='numeric' type='text' data-var='$app.date.gregorian.universal' value=''></td>
+                    <td><input id='gt-date' class='numeric' type='text' data-var='$app.date.gregorian.terrestrial'
+                               value=''></td>
+                    <td><input id='gu-date' class='numeric' type='text' data-var='$app.date.gregorian.universal' value=''></td>
                     <td class='numeric' data-var='$app.date.gregorian.delta'></td>
                 </tr>
                 <tr>
@@ -177,7 +170,7 @@
                     <td></td>
                     <td></td>
                     <td class='title'>Distance:</td>
-                    <td colspan='2' data-var='$app.body.position.distance'></td>
+                    <td colspan='2' class='numeric' style='text-align: center' data-var='$app.body.position.distance'></td>
                     <td class='numeric' data-var='$app.body.position.distanceSpeed'></td>
                 </tr>
                 </tbody>
@@ -189,7 +182,7 @@
             <table>
                 <tbody>
                 <tr>
-                    <td class='title'>Swiss Ephemeris, Copyright &copy; 2012 Astrodienst AG</td>
+                    <td class='title'>Swiss Ephemeris, Copyright &copy; 2015 Astrodienst AG</td>
                     <td class='top-title'><a href='http://www.astro.com/swisseph/swephinfo_e.htm' target='_blank'><img
                             src='images/swisseph_logo.jpg'></a></td>
                 </tr>
@@ -207,6 +200,18 @@
         </td>
     </tbody>
 </table>
+
+    <script type='text/javascript' src='/socket.io/socket.io.js' charset='utf-8'></script>
+
+    <script type='text/javascript' src='/js/jquery.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='/js/jquery.datetimepicker.js' charset='utf-8'></script>
+    
+    <script type='text/javascript' src='js/index.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/common.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/load.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/datetime.js' charset='utf-8'></script>
+
+    <script type='text/javascript' src='js/shortcut.js' charset='utf-8'></script>
 
 </body>
 </html>
