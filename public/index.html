@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ephemeris Online</title>
+    <title>Swiss Ephemeris Online</title>
 
     <link href="styles/style.css" rel="stylesheet"/>
     <link href="styles/jquery.datetimepicker.css" rel="stylesheet"/>
-    
-
 </head>
 <body onload='$app.update ()'>
 
 <table>
     <thead>
     <tr>
-        <th>Ephemeris Online</th>
+        <th>Swiss Ephemeris Online</th>
     </tr>
     </thead>
     <tbody>
@@ -30,7 +28,7 @@
                     <td style='width: 10%;'></td>
                     <td style='width: 30%;'>Terrestrial:</td>
                     <td style='width: 30%;'>Universal:</td>
-                    <td style='width: 30%;'>Delta:</td>
+                    <td style='width: 30%;'>Delta T:</td>
                 </tr>
                 <tr>
                     <td class='title'>Gregorian:</td>
@@ -78,6 +76,7 @@
                             <option label='JPL DE414/LE414'>de414</option>
                             <option label='JPL DE421/LE421'>de421</option>
                             <option label='JPL DE422/LE422'>de422</option>
+                            <option label='JPL DE431'>de431</option>
                             <option label='Swisseph' selected>swisseph</option>
                             <option label='Moshier'>moshier</option>
                         </select>
@@ -205,7 +204,7 @@
 
     <script type='text/javascript' src='/js/jquery.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='/js/jquery.datetimepicker.js' charset='utf-8'></script>
-    
+
     <script type='text/javascript' src='js/index.js' charset='utf-8'></script>
     <script type='text/javascript' src='js/common.js' charset='utf-8'></script>
     <script type='text/javascript' src='js/load.js' charset='utf-8'></script>
