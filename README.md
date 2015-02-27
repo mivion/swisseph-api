@@ -4,7 +4,7 @@ Swisseph API is an free and opensorce backend for getting Swisseph calculations 
 
 ## Installation
 
-Clone project the run:
+Clone project then run:
 
 > npm install
 
