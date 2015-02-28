@@ -1,5 +1,5 @@
 $app.AppVarAttribute = 'data-var';
-$app.Precision = 100000000;
+$app.Precision = 1000000;
 
 window.addEventListener ('keypress', function (event) {
 	if (event.keyCode == 13) {
