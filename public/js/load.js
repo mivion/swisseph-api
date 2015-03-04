@@ -109,7 +109,7 @@ $app.setVar = function () {
 				if (typeof (value) == 'number') {
 					value = Math.floor (value * $app.Precision) / $app.Precision;
 				};
-				element.innerText = value;
+				element.innerHTML = value;
 			}
 		} catch (exception) {
 		}
